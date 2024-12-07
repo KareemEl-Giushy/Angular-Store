@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../service/products.service';
+import { Product, ProductQuantity } from '../../models/Product';
 
 
 @Component({
@@ -9,13 +10,13 @@ import { ProductsService } from '../../service/products.service';
 })
 export class AllProductsComponent implements OnInit {
 
-  products: any[] = [];
-  categories: any[] = [];
+  products: Product[] = [];
+  categories: string[] = [];
 
   loading: boolean = true;
   showToast: boolean = false;
 
-  cart: any[] = [];
+  cart: ProductQuantity[] = [];
 
   constructor(private service: ProductsService) {  }
 

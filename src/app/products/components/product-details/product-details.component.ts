@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../../service/products.service';
+import { Product, ProductQuantity } from '../../models/Product';
 
 @Component({
   selector: 'app-product-details',
@@ -11,13 +12,13 @@ export class ProductDetailsComponent implements OnInit{
 
   productId: number;
 
-  product: any;
+  product!: Product;
 
   loading: boolean = true;
 
   amount: number = 1;
 
-  cart: any[] = [];
+  cart: ProductQuantity[] = [];
 
   constructor(private route: ActivatedRoute, private service: ProductsService) {
     this.productId = parseInt(route.snapshot.paramMap.get("id")!);
@@ -32,7 +33,7 @@ export class ProductDetailsComponent implements OnInit{
   getProduct(): void {
     this.loading = true
     this.service.getProductById(this.productId).subscribe({
-      next: item => {
+      next: (item: any) => {
         this.product = item
 
         this.loading =false;

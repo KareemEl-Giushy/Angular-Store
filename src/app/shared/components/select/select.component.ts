@@ -8,7 +8,7 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
 export class SelectComponent {
 
   @Input() title: string = "";
-  @Input() list: any[] = [];
+  @Input() list: string[] = [];
 
   @Output()selectedValue = new EventEmitter();
 

@@ -1,13 +1,13 @@
 <div class="row justify-content-center align-items-center" *ngIf="!loading">
   <div class="col-sm-4">
-    <img src="{{ this.product.image }}" alt="{{ this.product.name }}" class="thumbnail rounded w-100">
+    <img src="{{ this.product.image }}" alt="{{ this.product.title }}" class="thumbnail rounded w-100">
   </div>
   <div class="col">
     <div class="p-1"><strong>Name:</strong> {{ product.title }} </div>
     <div class="p-1"><strong>Category:</strong> {{ product.category }} </div>
     <div class="p-1"><strong>Description:</strong> {{ product.description }} </div>
-    <div class="p-1"><strong>Rate:</strong> {{ product.rating.rate }} </div>
-    <div class="p-1"><strong>Count:</strong> {{ product.rating.count }} </div>
+    <div class="p-1"><strong>Rate:</strong> {{ product.rating?.rate }} </div>
+    <div class="p-1"><strong>Count:</strong> {{ product.rating?.count }} </div>
     <div class="p-1"><strong>Price:</strong> {{ product.price }} </div>
     <app-add-to-cart (onAddToCart)="add($event)" ></app-add-to-cart>
   </div>

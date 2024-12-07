@@ -27,10 +27,10 @@
 </table>
 <div class="text-end">
     <div class="d-inline">Total: {{ total | number }} </div>
-    <a class="btn btn-success col">Order Now</a>
+    <a class="btn btn-success col" (click)="addCart()">Order Now</a>
 </div>
 <hr />
 
-<ngb-toast header="Made the Order Successfully" *ngIf="true" style="position: fixed; top: 20px; right: 20px">
+<ngb-toast header="Made the Order Successfully" *ngIf="toast" style="position: fixed; top: 20px; right: 20px" (hidden)="toast = false">
   Made An Order With ....
 </ngb-toast>

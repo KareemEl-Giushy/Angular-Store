@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
+import { ProductQuantity } from 'src/app/products/models/Product';
 
 
 @Component({
@@ -8,7 +9,7 @@ import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from 
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class ProductRowComponent {
-  @Input() product: any;
+  @Input() product!: ProductQuantity;
 
   @Output() updated = new EventEmitter;
 

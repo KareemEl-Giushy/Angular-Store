@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { env } from 'src/env/env';
+import Cart from '../models/Cart'
 
 @Injectable({
   providedIn: 'root'
@@ -18,11 +19,7 @@ export class CartsService {
     return cart
   }
 
-  AddCart(userId: number, date: string, products: any[]) {
-    return this.http.post(env.baseapi + "carts", {
-      userid: userId,
-      date: date,
-      products: products
-    });
+  AddCart(model: Cart) {
+    return this.http.post(env.baseapi + "carts", model);
   }
 }
