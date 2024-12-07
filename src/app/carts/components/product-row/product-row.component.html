@@ -1,0 +1,20 @@
+<td>
+  <img src="{{product.item.image }}" alt="" width="50px">
+</td>
+<td>
+  {{ product.item.title }}
+</td>
+<td>
+  {{ product.item.price | number  | currency: "L.E. "}}
+</td>
+<td scope="row" class="text-center">
+  <a class="btn btn-dark" (click)="decreaseQuantity()">-</a>
+  <input type="number" class="form-control w-50 d-inline mx-2" [(ngModel)]="product.quantity" min="1">
+  <a class="btn btn-dark" (click)="increaseQuantity()">+</a>
+</td>
+<td>
+  {{product.item.price * product.quantity | number | currency: "L.E. "}}
+</td>
+<td>
+  <a class="btn btn-danger" (click)="deleteProduct()">Delete</a>
+</td>

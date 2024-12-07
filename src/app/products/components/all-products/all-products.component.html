@@ -1,0 +1,17 @@
+<div class="my-4">
+<app-select [title]="'Categories'" [list]="categories" (selectedValue)="filterCategory($event)"></app-select>
+</div>
+
+<div class="row justify-content-between g-2" *ngIf="!loading">
+  <div class="col-md-4" *ngFor="let p of products">
+    <app-product [product]="p" (addToCart)="addToCart($event)"></app-product>
+  </div>
+</div>
+
+<div class="text-center w-100" *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>
+
+<ngb-toast header="Added Item Successfully" style="position: fixed; top: 10px; right: 10px" *ngIf="showToast">
+  Added  {{ cart[cart.length - 1].quantity }} unit from {{ cart[cart.length - 1].item.title }}
+</ngb-toast>

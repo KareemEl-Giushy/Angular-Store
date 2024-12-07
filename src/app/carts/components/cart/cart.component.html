@@ -1,0 +1,36 @@
+<div class="row my-3">
+  <h3 class="col">Shopping Cart:</h3>
+  <div class="col text-end">
+    <a class="btn btn-danger" (click)="clearCart()">Clear Cart</a>
+  </div>
+</div>
+
+<table class="table table-striped-columns">
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr product-row [product]="p" *ngFor="let p of cart" (updated)="updateProduct($event)"></tr>
+      <tr *ngIf="cart.length < 1" class="text-center">
+        <td colspan="6">
+          Your Cart is Empty
+        </td>
+      </tr>
+  </tbody>
+</table>
+<div class="text-end">
+    <div class="d-inline">Total: {{ total | number }} </div>
+    <a class="btn btn-success col">Order Now</a>
+</div>
+<hr />
+
+<ngb-toast header="Made the Order Successfully" *ngIf="true" style="position: fixed; top: 20px; right: 20px">
+  Made An Order With ....
+</ngb-toast>

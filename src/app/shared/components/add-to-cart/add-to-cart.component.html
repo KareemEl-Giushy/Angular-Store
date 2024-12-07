@@ -1,0 +1,9 @@
+<a class="btn btn-primary" (click)="clicked = true" *ngIf="!clicked">Add To Cart</a>
+<div *ngIf="clicked" class="row w-75">
+  <div class="col-6 p-0">
+    <input type="number" placeholder="Amount" [(ngModel)]="amount" class="form-control">
+  </div>
+  <div class="col-6">
+    <button class="btn btn-danger" (click)="add()">Add</button>
+  </div>
+</div>
