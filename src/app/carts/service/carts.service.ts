@@ -22,4 +22,17 @@ export class CartsService {
   AddCart(model: Cart) {
     return this.http.post(env.baseapi + "carts", model);
   }
+
+  getAllCarts() {
+    return this.http.get(env.baseapi + "carts");
+  }
+
+  getCartsByDate(date: {startDate: string, endDate: string}) {
+    return this.http.get(env.baseapi + "carts", {
+      params: {
+        startdate: date.startDate,
+        enddate: date.endDate
+      }
+    });
+  }
 }
